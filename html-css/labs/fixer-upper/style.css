@@ -18,6 +18,16 @@ body {
   margin: 0px;
 }
 
+h4 {
+  font-style: italic;
+}
+
+/* font-family: 'Gaegu', cursive; */
+
+ul {
+  padding-top: 15px;
+  font-size: 20px;
+}
 #header {
   color: white;
   background-color: #4a75e6;
@@ -27,14 +37,32 @@ body {
   padding-top: 3%;
   text-align: center;
   width: 100%;
+  /* font-family: 'Gaegu', cursive; */
 }
 
 #links {
   background-color: #Febc1f;
   height: 50px;
+  border: 10px;
   text-align: center;
 }
 
+#info {
+  background-color: #90af9a;
+  font-family: 'Gaegu', cursive;
+}
+
+.students {
+  background-color: #ea2533;
+  font-family: 'Gaegu', cursive;
+  text-align: center;
+}
+
+.stud {
+  border-radius: 800px;
+  max-height: 200px;
+  padding: 10px;
+}
 .link {
   color: grey;
   display: inline-block;
