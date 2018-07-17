@@ -15,15 +15,22 @@
 let customer_name;
 let balance;
 
-function openAccount(name){
-  balance = 0;
-  // Set the value for customer_name equal to name below
-
-  return //write the statment you need to return here
+function openAccount(name, stbal){
+  if (stbal == null) {
+    balance = 0;
+    // Set the value for customer_name equal to name below
+    let customer_name = `${name}`;
+    return (`${customer_name} has opened a new account with a balance of $0.`);
+     //write the statment you need to return here
+  } else {
+    let customer_name = `${name}`;
+    return (`${customer_name} has opened a new account with a balance of $${stbal}.`);
+  }
 }
 
 function deposit(value){
   // update the value of balance
+
   //return the correct statement
 }
 
@@ -33,3 +40,13 @@ function withdraw(/*argument here*/){
 }
 
 // Write your script below
+
+// to test the js
+// function testMe(a){
+//   return a + 4;
+// }
+//
+// let result = testMe(5);
+// console.log(result);
+//
+// console.log(testMe(5));
