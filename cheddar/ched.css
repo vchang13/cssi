@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+body {
+  background-color: #FEE4BA;
+}
+.banner {
+  font-family: 'Gaegu', cursive;
+  background-color: #1F90FE;
+}
+.profile {
+  border-radius: 50%;
+  border: 1px dotted #B16F00;
+  padding: 10px;
+  height:100px;
+}
+
+.links {
+  background-color: #0B5FB1;
+  height: 50px;
+  border: 10px;
+  text-align: center;
+}
+
+.link {
+  font-size: 5vh;
+  color: #FEE4BA;
+  display: inline-block;
+  font-weight: bold;
+  /* margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%; */
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto ;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr;
+  grid-gap: 1vh;
+  justify-content: center;
+}
+
+button {
+  background: #399DFF;
+}
+.photo {
+  height: 200px;
+  border: 3px solid #B16F00;
+  display: inline-block;
+
+}

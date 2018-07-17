@@ -3,7 +3,7 @@
   <head>
     <title> TITLE </title>
     <link rel="stylesheet" href="test.css">
-    <style>
+    <!-- <style>
     /* another way to do css */
       p {
         border: 2px dotted orange;
@@ -22,13 +22,40 @@
       div #foo {
         border: 1px solid black;
       }
+    </style> -->
+    <style>
+      .container {
+        /* display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100vh; */
+        display: grid;
+        grid-template-columns: 1fr 3fr 4fr;
+        grid-template-rows: 3fr 1fr 1fr;
+        background-color: white;
+        grid-gap: 4px;
+        
+
+      }
+      .container div {
+        border:1px dotted red;
+        background: #DDDDDD;
+        padding: 20px 10px 20px 10px;
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+      }
+      .container div.embiggen {
+        width: 200px;
+        height: 150px;
+      }
     </style>
   </head>
 
   <body>
-    <div class="title testClass" style="background: grey;"> DIV </div>
-    <!-- what are thoose -->
-    <div>
+    <!-- <div class="title testClass" style="background: grey;"> DIV </div>
+    <! <div>
       <span id="foo">Span 1</span>
       <span><a target="_blank" href="http://google.com">Google is awesome</a></span>
     </div>
@@ -41,7 +68,14 @@
       <li>Mango</li>
     </ul>
 
-    <button>Click me!</button>
-
+    <button>Click me!</button> -->
+    <div class="container">
+      <div>Picture</div>
+      <div style="background-color: red; grid-column: 1 / span 2; grid-row: 2;">Picture</div>
+      <div class="embiggen">Picture</div>
+      <div>Picture</div>
+      <div class="embiggen">Picture</div>
+      <div>Picture</div>
+    </div>
   </body>
 </html>
