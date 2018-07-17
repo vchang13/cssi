@@ -18,13 +18,16 @@ let dogType1 = "beagle";
 
 // Complete Task 1 Below
 
+console.log(`I will walk ${dogName1} today at 12:00pm`);
 
 
 let dogName2 = "Joe";
 let dogType2 = "bulldog";
 
 // Complete Task 2 Below
-
+if (dogType2=corgi){
+  console.log( `I will walk ${dogName2} today at 12:00pm`);
+}
 
 
 let dogName = "Lola";
