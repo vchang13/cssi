@@ -20,6 +20,8 @@ function openAccount(name, stbal){
     balance = 0;
     // Set the value for customer_name equal to name below
     let customer_name = `${name}`;
+    // THIS WAY WORKS TOO
+    // customer_name = name; 
     return (`${customer_name} has opened a new account with a balance of $0.`);
      //write the statment you need to return here
   } else {

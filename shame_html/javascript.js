@@ -46,15 +46,27 @@ function greet(name1, name2=null) {
 
 greet('Alice', 'Bob');
 
-const multiplyBy3 = (x) => x * 3;
-console.log(multiplyBy3(3));
+document.addEventListener('DOMContentLoaded', () => {
+  const likeButton = document.querySelector('.likeButton');
+  likeButton.addEventListener('click', () => {
+    const greetingMessage = makeGreetingMessage('Alice');
+    likeButton.innerText = greetingMessage;
+    // likeButton.innerText = 'Liked!';
+    likeButton.style.backgroundColor = 'blue';
+  })
+  });
 
-let n = 0;
-setInterval(() => {
-  n += 1;
-  console.log(n);
-}, 1000);
+  
 
-const multiplyBy4 = function (x) {
-  return x * 3;
-};
+// const multiplyBy3 = (x) => x * 3;
+// console.log(multiplyBy3(3));
+//
+// let n = 0;
+// setInterval(() => {
+//   n += 1;
+//   console.log(n);
+// }, 1000);
+//
+// const multiplyBy4 = function (x) {
+//   return x * 3;
+// };
