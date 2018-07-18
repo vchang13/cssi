@@ -56,7 +56,72 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   });
 
-  
+
+  const names = ['Alice', 'Bob', 'Charlie', 'Deborah', 'Evan'];
+  // print out names
+  // console.log(names[0]);
+  // console.log(names[1]);
+  // console.log(names[2]);
+  // console.log(names[3]);
+
+  // or can use a loop
+  for (let i = 0; i < names.length; i++) {
+    console.log(names[i]);
+  }
+
+let count = 0;
+while (count < 5) {
+  count++;
+  console.log(count);
+}
+
+// same as earlier for loop
+names.forEach((name) => {
+  console.log(`forEach: ${name}`);
+})
+
+
+const article = {
+  name: 'Dog family gives birth to litter of 10 puppies',
+  views: 1234,
+  datePublished: '03/25/2018',
+  author: [{
+    name: 'Joe Corgi',
+    title: 'Senior Canine Editor',
+  }],
+  editors: [{
+    name: '...',
+    title: '...',
+  }, {
+    name: '....',
+    title: '....',
+  },],
+
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const floatingBox = document.querySelector('.floatingBox');
+  let boxTop = 100;
+  let boxLeft = 100;
+  document.addEventListener('keydown', (event) => {
+    const key = event.key;
+    if (key === 'ArrowDown') {
+      boxTop +=5
+    } else if (key === 'ArrowUp') {
+      boxTop -=5
+    } else if (key === 'ArrowLeft') {
+      boxLeft -=5
+    } else if (key === 'ArrowRight') {
+      boxLeft +=5
+    } else {
+      return;
+    }
+
+    floatingBox.style.top = boxTop + 'px';
+    floatingBox.style.left = boxLeft + 'px';
+    console.log(event);
+  });
+});
 
 // const multiplyBy3 = (x) => x * 3;
 // console.log(multiplyBy3(3));
