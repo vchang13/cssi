@@ -1,6 +1,6 @@
 """My implementation of fizzbuzz."""
 
-x = input('Number: ')
+# x = input('Number: ')
 
 def fizzbuzz(number):
     """Prints out fizzbuzz
@@ -17,8 +17,13 @@ def fizzbuzz(number):
     else:
         print(number)
 
-for num in range(0, x+1):
-    fizzbuzz(num)
+if __name__ == '__main__':
+    """Runs fizzbuzz in the cmd line only (not in python)
+
+    """
+    x = input('Number: ')
+    for num in range(0, x+1):
+        fizzbuzz(num)
 
 
 

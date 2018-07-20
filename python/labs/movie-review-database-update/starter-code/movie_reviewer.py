@@ -24,8 +24,34 @@ inside_movie = {
     "reviews": 463787
 }
 
+big_hero = {
+    "title": "Big Hero 6",
+    "id": "tt2245084",
+    "year_released": 2014,
+    "rating": "PG",
+    "score": 7.8,
+    "reviews": 341778
+}
+
+star_wars = {
+    "title": "Star Wars: Episode IV - A New Hope ",
+    "id": "tt0076759",
+    "year_released": 1977,
+    "rating": "PG",
+    "score": 8.6,
+    "reviews": 1064242
+}
+
 # Do not edit the code above!
 
 # Write your code below to update the information in accordance with its
 # IMDB page: http://www.imdb.com/title/tt2096673/
 
+inside_movie['genre'] = ['Animation', 'Adventure', 'Comedy']
+inside_movie['year_released'] = 2015
+inside_movie['score'] = 8.2
+inside_movie['reviews'] = 489496
+inside_movie.pop('out_of')
+
+for x, y in inside_movie.items():
+     print('{k}: {v}'.format(k=x, v=y))
