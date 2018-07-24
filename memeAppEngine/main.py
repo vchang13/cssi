@@ -17,6 +17,10 @@ from google.appengine.api import urlfetch
 import json
 import urllib
 import random
+import jinja2
+
+template_loader = jinja2.FileSystemLoader(searchpath="./")
+template_env = jinja2.Environment(loader=template_loader)
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -58,8 +62,67 @@ class MainPage(webapp2.RequestHandler):
         pict_url = new_meme_dict['data']['url']
         self.response.write('<img src="{pic}"/>'.format(pic=pict_url))
 
+class MemeTemp(webapp2.RequestHandler):
+    def get(self):
+        # self.response.write('howdoigethere')
+        template = template_env.get_template('templates/home.html')
+        self.response.write(template.render())
+
+class MemeResult(webapp2.RequestHandler):
+    # def post(self):
+    #     meme_type = self.request.get('meme-type')
+    #     self.response.write('Your meme is {meme}'.format(meme=meme_type))
+
+    def post(self):
+        url = 'https://api.imgflip.com/get_memes'
+        try:
+            result = urlfetch.fetch(url)
+            if result.status_code == 200:
+                json_dict = json.loads(result.content)
+                chose_meme = self.request.get('meme-type')
+                self.response.write('Your meme is {meme}'.format(meme=chose_meme))
+
+# dictionary_name['key1']['key2'][index]['key for the indexed object']
+                meme_chosen = json_dict['data']['memes'][35]['id']
+
+            else:
+                self.response.status_code = result.status_code
+        except urlfetch.Error:
+            logging.exception('Caught exception fetching url')
+
+# allows inputs to be used for the text on meme
+        input1=self.request.get('user-first-ln')
+        input2=self.request.get('user-second-ln')
+
+        caption_url = 'https://api.imgflip.com/caption_image'
+        caption_dict = {
+            'template_id': meme_chosen,
+            'username': 'aimingarrows',
+            'password': 'qwerty123',
+            'text0': input1,
+            'text1': input2,
+        }
+        result = urlfetch.fetch(
+            url=caption_url,
+            payload=urllib.urlencode(caption_dict),
+            method=urlfetch.POST,
+        )
+        new_meme_dict = json.loads(result.content)
+        pict_url = new_meme_dict['data']['url']
+        self.response.write('<img src="{pic}"/>'.format(pic=pict_url))
+
+
+class RecipeBrowser(webapp2.RequestHandler):
+    def get(self):
+        template = template_env.get_template('templates/recipes.html')
+        recipe = {'ingredients': ['cottage cheese', 'pineapple'], 'cuisine': 'nixonian'}
+        self.response.write(template.render(recipe))
 
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/memetemp', MemeTemp),
+    ('/recipe', RecipeBrowser),
+    ('/meme_result', MemeResult)
+
 ], debug=True)

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+  </head>
+  <body>
+    Cuisine: {{ cuisine }}
+    <br>
+    {% for ingredient in ingredients %}
+      <div>
+        {{loop.index}} {{ ingredients }}
+      </div>
+    {% endfor %}
+  </body>
+</html>
