@@ -34,6 +34,8 @@ import webapp2
 import os
 import jinja2
 import random
+from models import Movie
+from models import User
 
 
 def get_fortune():
@@ -67,8 +69,54 @@ class FortuneHandler(webapp2.RequestHandler):
         #astro_sign = request.form.get('user_astrological_sign')
         self.response.write(end_template.render(my_dict))
 
+class DataDemoHandler(webapp2.RequestHandler):
+    def get(self):
+        start_template=jinja_current_directory.get_template("templates/movie_demo.html")
+        self.response.write(start_template.render())
+
+    def post(self):
+        title = self.request.get('movie_title')
+        runtime = int(self.request.get('movie_runtime'))
+        rating = float(self.request.get('movie_rating'))
+        my_movie = Movie(title=title, runtime_mins=runtime, rating=rating)
+        my_movie.put()
+        self.get()
+
+class TestDataHandler(webapp2.RequestHandler):
+    def get(self):
+        test_movie = Movie(title="Avengers", runtime_mins=99, rating=8.0)
+        test_movie.put()
+
+# class FacebookDataHandler(webapp2.RequestHandler):
+#     def get(self):
+#         test_fb = User(email="iwoow@gmail.com", pword="password", first_name="Victoria", last_name="C")
+#         test_fb.put()
+
+class FBDemoHandler(webapp2.RequestHandler):
+    def get(self):
+        start_template=jinja_current_directory.get_template("templates/movie_demo.html")
+        self.response.write(start_template.render())
+
+    def post(self):
+        email = self.request.get('email')
+        password = self.request.get('password')
+        fs_name = self.request.get('first_name')
+        ls_name = self.request.get('last_name')
+        profile = self.request.get('prof_pic')
+        posts = self.request.get('user_post')
+        face_book = User(email=email, pword=password, first_name=fs_name, last_name=ls_name, profile=profile, posts=posts)
+        face_book.put()
+        self.get()
+
+        query = face_book.query
+
+    # def get(self):
 
 
 app = webapp2.WSGIApplication([
-    ('/', FortuneHandler)
+    ('/', FortuneHandler),
+    ('/movie-demo', DataDemoHandler),
+    ('/test-data', TestDataHandler),
+    ('/fb-demo', FBDemoHandler),
+    # ('/fb-test', FacebookDataHandler),
 ], debug=True)
