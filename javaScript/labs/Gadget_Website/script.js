@@ -12,3 +12,42 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
+
+// Changes title
+let titlePuns = ["THE AMAZING CAT BATTLE AMEOWR", "PAW-LEASE BUY THIS","THE AMEOWZING CAT BATTLE ARMOR",
+                "CLAW-SOME ARMOR FOR CATS", "WE'RE NOT KITTEN", "ONLY FUR CATS", "THE AMAZING CAT BATTLE ARMOR"];
+function punChange (){
+
+}
+
+// Links change color when hovered overed
+// function punChange (){
+//
+// }
+// Changes background color of ____ on click
+// function punChange (){
+//
+// }
+// Borders show for images when hovered overed
+// function punChange (){
+//
+// }
+// Turns images circular on click
+// function punChange (){
+//
+// }
+// Resets back to default when spacebar is pressed
+//   while loop?
+// function punChange (){
+//
+// }
+
+// function testMe(a){
+//   return a + 4;
+// }
+//
+// let result = testMe(5);
+// console.log(result);
+//
+// console.log(testMe(5));
