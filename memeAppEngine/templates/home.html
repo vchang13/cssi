@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Welcome!</title>
+    <title>Memes</title>
   </head>
   <body>
     <h1>Meme Generator</h1>
     <img height="150px" width="150px" src="https://cdn.gamer-network.net/2013/articles/1/7/9/0/5/5/6/144603208367.jpg/EG11/resize/300x-1/quality/75/format/jpg"></img>
-    <h2>Welcome to my meme generator!</h2>
+    <h2>Welcome to the Meme Machine</h2>
 
     <form method="POST" action="/meme_result">
       Line 1 of meme:
@@ -16,18 +16,14 @@
       <input type="text" name="user-second-ln" value="Second line of meme"><br>
       <br><br>
       <select name="meme-type">
-<!-- for loop to put all of the memes into the dropdown menu to be picked -->
-        <!-- {% for meme in memes %}
-          <option value="{{meme.id}}">{{meme.name}}</option>
-        {% endfor %} -->
-
-
-        <!-- <option value = "college-grad">Happy College Grad</option>
-        <option value = "thinking-ape">Deep Thought Monkey</option>  -->
-
         <!-- <option value = "distracted-bf">Distracted Boyfriend</option> -->
-        <option value = "doge">Doge</option>
-        <!-- <option value = "grumpy-cat">Grumpy Cat</option> -->
+        <!-- <option value = "doge">Doge</option> -->
+        <!-- <option value = "grumpy-cat">Grumpy Cat</option> index = 45 -->
+
+<!-- for loop to put all of the memes into the dropdown menu to be picked -->
+        {% for meme in memes %}
+          <option value="{{meme.id}}">{{meme.name}}</option>
+        {% endfor %}
 
       </select>
       <input type = "submit" value="Go!">

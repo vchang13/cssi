@@ -22,7 +22,7 @@ import jinja2
 template_loader = jinja2.FileSystemLoader(searchpath="./")
 template_env = jinja2.Environment(loader=template_loader)
 
-class MainPage(webapp2.RequestHandler):
+class RandomMeme(webapp2.RequestHandler):
     def get(self):
         name = self.request.get('name')
         self.response.headers['Content-Type'] = 'text/html'
@@ -65,8 +65,11 @@ class MainPage(webapp2.RequestHandler):
 class MemeTemp(webapp2.RequestHandler):
     def get(self):
         # self.response.write('howdoigethere')
+        
         template = template_env.get_template('templates/home.html')
-        self.response.write(template.render())
+        self.response.write('')
+
+        # self.response.write(template.render())
 
 class MemeResult(webapp2.RequestHandler):
     # def post(self):
@@ -81,10 +84,9 @@ class MemeResult(webapp2.RequestHandler):
                 json_dict = json.loads(result.content)
                 chose_meme = self.request.get('meme-type')
                 self.response.write('Your meme is {meme}'.format(meme=chose_meme))
-
 # dictionary_name['key1']['key2'][index]['key for the indexed object']
+                # meme_index = self.request.get('meme-index')
                 meme_chosen = json_dict['data']['memes'][35]['id']
-
             else:
                 self.response.status_code = result.status_code
         except urlfetch.Error:
@@ -112,17 +114,17 @@ class MemeResult(webapp2.RequestHandler):
         self.response.write('<img src="{pic}"/>'.format(pic=pict_url))
 
 
-class RecipeBrowser(webapp2.RequestHandler):
-    def get(self):
-        template = template_env.get_template('templates/recipes.html')
-        recipe = {'ingredients': ['cottage cheese', 'pineapple'], 'cuisine': 'nixonian'}
-        self.response.write(template.render(recipe))
+# class RecipeBrowser(webapp2.RequestHandler):
+#     def get(self):
+#         template = template_env.get_template('templates/recipes.html')
+#         recipe = {'ingredients': ['cottage cheese', 'pineapple'], 'cuisine': 'nixonian'}
+#         self.response.write(template.render(recipe))
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainPage),
+    ('/', RandomMeme),
     ('/memetemp', MemeTemp),
-    ('/recipe', RecipeBrowser),
+    # ('/recipe', RecipeBrowser),
     ('/meme_result', MemeResult)
 
 ], debug=True)

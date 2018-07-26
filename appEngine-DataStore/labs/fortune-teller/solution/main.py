@@ -108,7 +108,6 @@ class FBDemoHandler(webapp2.RequestHandler):
         face_book.put()
         self.get()
 
-        query = face_book.query
 
     # def get(self):
 

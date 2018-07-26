@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>Banking</title>
+  </header>
+  <body>
+    Current Balance: ${{current_balance}}
+    <br>
+    
+    <form method="POST" action="/money">
+      Amount: <input type="text" name="amount"/>
+      <br>
+      <input type="submit" value="Execute"/>
+    </form>
+  </body>
+</html>
